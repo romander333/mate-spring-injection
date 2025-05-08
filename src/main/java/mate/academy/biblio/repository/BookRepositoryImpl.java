@@ -29,7 +29,7 @@ public class BookRepositoryImpl implements BookRepository {
             session.persist(book);
             tx.commit();
         } catch (Exception e) {
-            if (tx != null) {
+            if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
             throw new RuntimeException("Cannot save book:" + book, e);
@@ -43,6 +43,8 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public List<Book> findAll() {
-        return List.of();
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("from Book",Book.class).getResultList();
+        }
     }
 }

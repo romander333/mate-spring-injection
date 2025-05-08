@@ -5,16 +5,17 @@ import mate.academy.biblio.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@org.springframework.boot.autoconfigure.SpringBootApplication
-public class SpringBootApplication {
+@SpringBootApplication
+public class SpringBookApplication {
 
     @Autowired
     private BookService bookService;
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApplication.class, args);
+        SpringApplication.run(SpringBookApplication.class, args);
     }
 
     @Bean
@@ -29,5 +30,4 @@ public class SpringBootApplication {
             System.out.println(bookService.findAll());
         };
     }
-
 }
