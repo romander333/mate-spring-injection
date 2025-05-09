@@ -1,4 +1,4 @@
-package mate.academy.biblio;
+package com.kozak.mybookshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
