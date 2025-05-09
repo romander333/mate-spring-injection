@@ -1,7 +1,7 @@
-package mate.academy.biblio.repository;
+package com.kozak.mybookshop.repository;
 
+import com.kozak.mybookshop.model.Book;
 import java.util.List;
-import mate.academy.biblio.model.Book;
 
 public interface BookRepository {
 

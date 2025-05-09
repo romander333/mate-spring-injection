@@ -1,28 +1,24 @@
-package mate.academy.biblio.repository;
+package com.kozak.mybookshop.repository;
 
+import com.kozak.mybookshop.exception.DataProcessingException;
+import com.kozak.mybookshop.model.Book;
 import java.util.List;
-import mate.academy.biblio.model.Book;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class BookRepositoryImpl implements BookRepository {
 
     private final SessionFactory sessionFactory;
-
-    @Autowired
-    public BookRepositoryImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Override
     public Book save(Book book) {
         Session session = null;
         Transaction tx = null;
-
         try {
             session = sessionFactory.openSession();
             tx = session.beginTransaction();
@@ -32,7 +28,7 @@ public class BookRepositoryImpl implements BookRepository {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            throw new RuntimeException("Cannot save book:" + book, e);
+            throw new DataProcessingException("Cannot save book:" + book, e);
         } finally {
             if (session != null) {
                 session.close();
@@ -45,6 +41,8 @@ public class BookRepositoryImpl implements BookRepository {
     public List<Book> findAll() {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("from Book",Book.class).getResultList();
+        } catch (Exception e) {
+            throw new DataProcessingException("Cannot retrieve books from DB", e);
         }
     }
 }

@@ -1,7 +1,7 @@
-package mate.academy.biblio.service;
+package com.kozak.mybookshop.service;
 
+import com.kozak.mybookshop.model.Book;
 import java.util.List;
-import mate.academy.biblio.model.Book;
 
 public interface BookService {
     Book save(Book book);

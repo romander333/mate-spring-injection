@@ -1,7 +1,8 @@
-package mate.academy.biblio;
+package com.kozak.mybookshop;
 
-import mate.academy.biblio.model.Book;
-import mate.academy.biblio.service.BookService;
+import com.kozak.mybookshop.model.Book;
+import com.kozak.mybookshop.service.BookService;
+import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +25,8 @@ public class SpringBookApplication {
             Book irrationalThink = new Book();
             irrationalThink.setTitle("Irrational Think");
             irrationalThink.setAuthor("Den Ariel");
+            irrationalThink.setIsbn("978-3-16-148410-0");
+            irrationalThink.setPrice(BigDecimal.valueOf(100));
 
             bookService.save(irrationalThink);
 
