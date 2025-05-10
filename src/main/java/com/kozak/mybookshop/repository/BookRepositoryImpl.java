@@ -19,7 +19,9 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public Book save(Book book) {
         EntityTransaction transaction = null;
-        try (EntityManager entityManager = emf.createEntityManager()) {
+        EntityManager entityManager = null;
+        try {
+            entityManager = emf.createEntityManager();
             transaction = entityManager.getTransaction();
             transaction.begin();
             entityManager.persist(book);
@@ -30,6 +32,10 @@ public class BookRepositoryImpl implements BookRepository {
                 transaction.rollback();
             }
             throw new DataProcessingException("Cannot save book:" + book, e);
+        } finally {
+            if (entityManager != null && entityManager.isOpen()) {
+                entityManager.close();
+            }
         }
     }
 
@@ -43,10 +49,12 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Optional<Book> findById(int id) {
+    public Optional<Book> findById(Long id) {
         try (EntityManager entityManager = emf.createEntityManager()) {
             Book book = entityManager.find(Book.class, id);
             return Optional.ofNullable(book);
+        } catch (Exception e) {
+            throw new DataProcessingException("Cannot retrieve book with id:" + id, e);
         }
     }
 }

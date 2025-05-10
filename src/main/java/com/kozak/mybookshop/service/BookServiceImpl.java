@@ -7,7 +7,6 @@ import com.kozak.mybookshop.mapper.BookMapper;
 import com.kozak.mybookshop.model.Book;
 import com.kozak.mybookshop.repository.BookRepository;
 import java.util.List;
-import java.util.Random;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +21,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookDto save(CreateBookRequestDto requestDto) {
         Book book = bookMapper.toModel(requestDto);
-        book.setIsbn("UA" + new Random().nextInt(100000));
         return bookMapper.toBookDto(bookRepository.save(book));
     }
 
@@ -35,7 +33,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookDto getById(int id) {
+    public BookDto getById(Long id) {
         Book book = bookRepository.findById(id).orElseThrow(() ->
                 new EntityNotFoundException("Book not found by id:" + id));
         return bookMapper.toBookDto(book);
