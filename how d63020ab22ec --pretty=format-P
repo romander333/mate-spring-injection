@@ -1,0 +1,53 @@
+[33mcommit d63020ab22eca1c2a4cca1e4bb6056666e8c1a88[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mhm-spring-boot-web[m[33m, [m[1;31morigin/hm-spring-boot-web[m[33m)[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Wed May 14 16:40:33 2025 +0300
+
+    add methods
+
+[33mcommit e323691a29903146897cf825aae0d10f7b22ca87[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Wed May 14 16:37:32 2025 +0300
+
+    add delete and put, include liquibase
+
+[33mcommit 56328feba45f1262abfab1b7020204a633ca70be[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Sat May 10 11:57:20 2025 +0300
+
+    fix problem
+
+[33mcommit 67e9b7e2fa5891dec3a4d6c75d27bcab133b3a76[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Fri May 9 16:29:51 2025 +0300
+
+    create book store
+
+[33mcommit d5f6d2c1121317970b75edfe9a10824a2d849b78[m[33m ([m[1;31morigin/hm-spring-boot-inject[m[33m)[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Fri May 9 13:36:54 2025 +0300
+
+    see comments and fix all problem
+
+[33mcommit 9c840c31757f38666ebd5db208176c8fce770cc4[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Thu May 8 17:31:33 2025 +0300
+
+    fix comment
+
+[33mcommit 2617f1e9c31478f530710e7a14b8a80a907454da[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Wed May 7 12:11:57 2025 +0300
+
+    set 4
+
+[33mcommit 0add73c184927ef4c994eaad6cbac451eba6fc92[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Wed May 7 12:07:31 2025 +0300
+
+    create book entity with spring
+
+[33mcommit c21541f608a118c88af38f556f4f10ea34fa960d[m
+Author: Luchko Roman <romander09@gmail.com>
+Date:   Mon May 5 17:41:54 2025 +0300
+
+    add ci.yml

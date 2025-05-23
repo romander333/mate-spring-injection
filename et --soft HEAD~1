@@ -1,0 +1,13 @@
+e323691a29903146897cf825aae0d10f7b22ca87
+[1mdiff --git a/src/main/java/com/kozak/mybookshop/mapper/BookMapper.java b/src/main/java/com/kozak/mybookshop/mapper/BookMapper.java[m
+[1mindex bf1ea9d..fa78312 100644[m
+[1m--- a/src/main/java/com/kozak/mybookshop/mapper/BookMapper.java[m
+[1m+++ b/src/main/java/com/kozak/mybookshop/mapper/BookMapper.java[m
+[36m@@ -8,6 +8,7 @@[m [mimport org.mapstruct.Mapper;[m
+ [m
+ @Mapper(config = MapperConfig.class)[m
+ public interface BookMapper {[m
+[32m+[m[41m[m
+     BookDto toBookDto(Book book);[m
+ [m
+     Book toModel(CreateBookRequestDto requestDto);[m
