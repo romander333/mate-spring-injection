@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
-
     private final BookMapper bookMapper;
 
     @Override
@@ -54,14 +53,16 @@ public class BookServiceImpl implements BookService {
 
         Book book = bookMapper.toModel(requestDto);
         book.setId(id);
-        bookRepository.updateBookById(id,book.getTitle(),
+        bookRepository.updateBookById(
+                id,
+                book.getTitle(),
                 book.getAuthor(),
                 book.getIsbn(),
                 book.getPrice(),
                 book.getDescription(),
-                book.getCoverImage());
+                book.getCoverImage()
+        );
 
         return bookMapper.toBookDto(book);
-
     }
 }
